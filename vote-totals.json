@@ -1,0 +1,251 @@
+{
+  "1": {
+    "republican": {
+      "name": "Deborah Williams",
+      "count": 53219,
+      "incumbent": false,
+      "incumbentParty": false
+    },
+    "democrat": {
+      "name": "Bob Brady",
+      "count": 245791,
+      "incumbent": true,
+      "incumbentParty": true
+    }
+  },
+  "2": {
+    "republican": {
+      "name": "James Jones",
+      "count": 35131,
+      "incumbent": false,
+      "incumbentParty": false
+    },
+    "democrat": {
+      "name": "Dwight Evans",
+      "count": 322514,
+      "incumbent": false,
+      "incumbentParty": true
+    }
+  },
+  "3": {
+    "republican": {
+      "name": "Mike Kelly",
+      "count": 244893,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": null
+  },
+  "4": {
+    "republican": {
+      "name": "Scott Perry",
+      "count": 220628,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Joshua Burkholder",
+      "count": 113372,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "5": {
+    "republican": {
+      "name": "Glenn Thompson",
+      "count": 206761,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Kerith Strano Taylor",
+      "count": 101082,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "6": {
+    "republican": {
+      "name": "Ryan A. Costello",
+      "count": 207469,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Mike Parrish",
+      "count": 155000,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "7": {
+    "republican": {
+      "name": "Patrick Meehan",
+      "count": 225678,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Mary Ellen Balchunis",
+      "count": 153824,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "8": {
+    "republican": {
+      "name": "Brian Fitzpatrick",
+      "count": 207263,
+      "incumbent": false,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Steve Santarsiero",
+      "count": 173555,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "9": {
+    "republican": {
+      "name": "Bill Shuster",
+      "count": 186580,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Arthur Halvorson",
+      "count": 107985,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "10": {
+    "republican": {
+      "name": "Tom Marino",
+      "count": 211282,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Michael Molesevich",
+      "count": 89823,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "11": {
+    "republican": {
+      "name": "Lou Barletta",
+      "count": 199421,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Michael Marsicano",
+      "count": 113800,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "12": {
+    "republican": {
+      "name": "Keith Rothfus",
+      "count": 221851,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Erin McClelland",
+      "count": 137353,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "13": {
+    "democrat": {
+      "name": "Brendan Boyle",
+      "count": 239316,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "republican": null
+  },
+  "14": {
+    "republican": {
+      "name": "Lenny McAllister",
+      "count": 87999,
+      "incumbent": false,
+      "incumbentParty": false
+    },
+    "democrat": {
+      "name": "Michael F. Doyle",
+      "count": 255293,
+      "incumbent": true,
+      "incumbentParty": true
+    }
+  },
+  "15": {
+    "republican": {
+      "name": "Charlie Dent",
+      "count": 190618,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Rick Daugherty",
+      "count": 124129,
+      "incumbent": false,
+      "incumbentParty": false
+    },
+    "independent": {
+      "name": "Paul Rizzo",
+      "count": 11727,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "16": {
+    "republican": {
+      "name": "Lloyd Smucker",
+      "count": 168669,
+      "incumbent": false,
+      "incumbentParty": true
+    },
+    "democrat": {
+      "name": "Christina Hartman",
+      "count": 134586,
+      "incumbent": false,
+      "incumbentParty": false
+    },
+    "independent": {
+      "name": "Shawn Patrick House",
+      "count": 10518,
+      "incumbent": false,
+      "incumbentParty": false
+    }
+  },
+  "17": {
+    "republican": {
+      "name": "Matt Connolly",
+      "count": 135430,
+      "incumbent": false,
+      "incumbentParty": false
+    },
+    "democrat": {
+      "name": "Matt Cartwright",
+      "count": 157734,
+      "incumbent": true,
+      "incumbentParty": true
+    }
+  },
+  "18": {
+    "republican": {
+      "name": "Tim Murphy",
+      "count": 88266,
+      "incumbent": true,
+      "incumbentParty": true
+    },
+    "democrat": null
+  }
+}
