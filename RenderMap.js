@@ -25,10 +25,17 @@ function renderDistrict(number, voteInfo) {
     var contested = (!voteInfo.republican || !voteInfo.democrat) ? "uncontested" : "contested";
 
     var feature = topojson.feature(district, district.objects['pa-' + number]);
+
+    var bounds = path.bounds(feature);
+    var x_bounds = Math.abs(bounds[1][0] - bounds[0][0]);
+    var y_bounds = Math.abs(bounds[1][1] - bounds[0][1]);
+    var scale = Math.max(6000, 900000 / (Math.sqrt(x_bounds * y_bounds)));
+
     var mega_center = projection.invert(path.centroid(feature));
-    mega_center[0] += 1.3;
-    mega_center[1] -= 0.4;
-    var mega_me = d3.geoMercator().scale(8000).center(mega_center);
+    mega_center[0] += 1.3 / (scale / 8000);
+    mega_center[1] -= 0.4 / (scale / 8000);
+    
+    var mega_me = d3.geoMercator().scale(scale).center(mega_center);
     var is_mega = false;
 
     svg.insert("path")
