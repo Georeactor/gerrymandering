@@ -22,14 +22,37 @@ function renderDistrict(number, voteInfo) {
     if (voteInfo.republican && (!voteInfo.democrat || voteInfo.democrat.count < voteInfo.republican.count)) {
       party = "republican";
     }
+    var contested = (!voteInfo.republican || !voteInfo.democrat) ? "uncontested" : "contested";
+
+    var feature = topojson.feature(district, district.objects['pa-' + number]);
+    var mega_center = projection.invert(path.centroid(feature));
+    mega_center[0] += 1.3;
+    mega_center[1] -= 0.4;
+    var mega_me = d3.geoMercator().scale(8000).center(mega_center);
+    var is_mega = false;
 
     svg.insert("path")
-      .datum(topojson.feature(district, district.objects['pa-' + number]))
-      .attr("class", "district " + party)
+      .datum(feature)
+      .attr("class", ["district", party, contested].join(" "))
       .attr("d", path)
       .on("click", function() {
+        var border = d3.select(this);
+        if (border.classed('dull') && !is_mega) {
+          return;
+        }
+        
+        is_mega = !is_mega;
+        d3.selectAll(".district").classed("dull", is_mega);
+        border
+          .classed("mega", is_mega)
+          .attr("d", is_mega ? path.projection(mega_me) : path.projection(projection));
+        if (is_mega) {
+          border.raise();
+        }
+/*
         d3.selectAll(".district").style("fill", "#fc3c2f");
         d3.select(this).style("fill", "#00f");
+*/
       });
   });
 }
@@ -45,4 +68,8 @@ d3.json("vote-totals.json", function(err, districts) {
   for (var d = 1; d <= 18; d++) {
     renderDistrict(d, districts[d + ""]);
   }
+});
+
+d3.select("#contested").on("change", function() {
+  d3.selectAll(".uncontested").classed("hide", !this.checked);
 });
