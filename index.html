@@ -3,35 +3,40 @@
   <head>
     <meta charset="utf-8"/>
     <title>Gerrymandering PA</title>
-    <style>
-.district {
-  stroke: #000;
-  stroke-width: 2;
-}
-.district.dull {
-  fill-opacity: 0.25;
-}
-.democrat {
-  fill: #2f3cfc;
-}
-.republican {
-  fill: #fc3c2f;
-}
-.district.mega {
-  stroke-width: 6;
-  fill-opacity: 1;
-}
-.hide {
-  display: none;
-}
-    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/gerry.css"/>
   </head>
   <body>
-    <label>
-      <input type="checkbox" id="contested" checked="checked"/>
-      <span>Show Uncontested Districts</span>
-    </label>
-    <div id="map">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Partisan Symmetry</h2>
+          <label>
+            <input type="checkbox" id="contested" checked="checked"/>
+            <span>Show Uncontested Districts</span>
+          </label>
+          <div id="map">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <h4>In Contested Districts...</h4>
+          <table class="table table-striped">
+            <tbody id="results">
+              <tr>
+                <th>Dem Popular Vote</th>
+                <th>Seats Won</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-6">
+          <h4>Trendline</h4>
+          <svg id="graph">
+          </svg>
+        </div>
+      </div>
     </div>
     <script src="lib/d3.v4.min.js"></script>
     <script src="lib/topojson.v3.min.js"></script>

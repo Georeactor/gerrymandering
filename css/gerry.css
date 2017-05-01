@@ -1,0 +1,27 @@
+.district {
+  stroke: #000;
+  stroke-width: 2;
+}
+.district.dull {
+  fill-opacity: 0.25;
+}
+.democrat {
+  fill: #2f3cfc;
+}
+.republican {
+  fill: #fc3c2f;
+}
+.district.mega {
+  stroke-width: 6;
+  fill-opacity: 1;
+}
+.hide {
+  display: none;
+}
+.table > tbody > tr.highlight {
+  background-color: #acf;
+}
+svg#graph {
+  overflow: visible;
+  margin-left: 15px;
+}

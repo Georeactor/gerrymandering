@@ -71,10 +71,107 @@ d3.json("vote-totals.json", function(err, districts) {
     throw err;
   }
   votesByDistrict = districts;
-
+  
+  // generate the map
   for (var d = 1; d <= 18; d++) {
-    renderDistrict(d, districts[d + ""]);
+    var district = districts[d + ""];
+    renderDistrict(d, district);
   }
+
+  var datapoints = [];
+  
+  for (var revote = -14; revote < 16; revote += 2) {
+    // votes in contested seats
+    var republicanVote = 0,
+    democratVote = 0,
+    republicanSeats = 0,
+    democratSeats = 0,
+    republicanUncontested = 0,
+    democratUncontested = 0;
+    
+    for (var d = 1; d <= 18; d++) {
+      var district = districts[d + ""];
+      if (district.republican && district.democrat) {
+        var districtTotal = district.republican.count + district.democrat.count;
+        var localRep = district.republican.count - (districtTotal * revote / 100);
+        var localDem = district.democrat.count + (districtTotal * revote / 100);
+        republicanVote += localRep;
+        democratVote += localDem;
+        
+        if (localRep > localDem) {
+          republicanSeats++;
+        } else {
+          democratSeats++;
+        }
+      } else if (district.republican) {
+        republicanUncontested++;
+      } else {
+        democratUncontested++;
+      }
+    }
+    
+    var popPercentage = (democratVote / (republicanVote + democratVote) * 100);
+    var seatPercentage = (democratSeats / (democratSeats + republicanSeats) * 100);
+    datapoints.push({
+      percent: popPercentage,
+      seats: seatPercentage
+    });
+    
+    if (democratUncontested) {
+      var uncontested = ' + ' + democratUncontested + ' uncontested';
+    }
+    var voteRow = d3.select('#results').append('tr');
+    if (revote === 0) {
+      voteRow.attr('class', 'highlight');
+    }
+    voteRow.append('td').text(popPercentage.toFixed(1) + '%');
+    voteRow.append('td').text(democratSeats + ' (' + seatPercentage.toFixed(1) + '%)' + uncontested);
+  }
+
+  // generate the graph
+  var g = d3.select('#graph');
+  var width = g.style('width').replace('px', '') * 1 - 30;
+  var height = width;
+  var x = d3.scaleLinear()
+    .rangeRound([0, width]);
+  var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
+  var line = d3.line()
+    .x(function(d) { return x(d.percent); })
+    .y(function(d) { return y(d.seats); });  
+
+  x.domain(d3.extent(datapoints, function(d) { return d.percent; }));
+  y.domain(d3.extent(datapoints, function(d) { return d.seats; }));
+  
+  g.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+    .append("text")
+      .attr("fill", "#000")
+      //.attr("transform", "rotate(-90)")
+      .attr("x", width)
+      .attr("dy", -5)
+      .attr("text-anchor", "end")
+      .text("% Vote Won by Democrats");
+
+  g.append("g")
+      .call(d3.axisLeft(y))
+    .append("text")
+      .attr("fill", "#000")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("% Seats Won by Democrats");
+    
+  g.append("path")
+      .datum(datapoints)
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 1.5)
+      .attr("d", line);
 });
 
 d3.select("#contested").on("change", function() {
