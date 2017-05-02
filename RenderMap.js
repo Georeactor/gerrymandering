@@ -170,7 +170,7 @@ d3.json("vote-totals.json", function(err, districts) {
   var x = d3.scaleLinear()
     .rangeRound([0, width]);
   var y = d3.scaleLinear()
-    .rangeRound([height, 0]);
+    .rangeRound([height - 10, 0]);
   var line = d3.line()
     .x(function(d) { return x(d.percent); })
     .y(function(d) { return y(d.seats); });  
