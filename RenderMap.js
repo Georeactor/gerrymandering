@@ -12,59 +12,82 @@ var svg = d3.select("#map").append("svg")
   .attr("width", width)
   .attr("height", height);
 
-function renderDistrict(number, voteInfo) {
-  d3.json("topojson/pa-" + number + ".topojson", function(error, district) {
-    if (error) {
-      throw error;
+var votesByDistrict = {};
+var loadedGeoByDistrict = {};
+var basePercent = 0;
+
+function renderDistrict(number, shift) {
+  var voteInfo = votesByDistrict[number + ""];
+  if (!shift) {
+      shift = 0;
+  }
+    
+  var colorDistrict = function() {
+    var shiftedDemVote,
+      shiftedRepVote,
+      totalVote = (voteInfo.democrat || { count: 0 }).count + (voteInfo.republican || { count: 0 }).count;
+    if (voteInfo.democrat && voteInfo.republican) {
+      shiftedDemVote = voteInfo.democrat.count + (shift * totalVote / 100);
+      shiftedRepVote = voteInfo.republican.count - (shift * totalVote / 100);
     }
 
-    var party = "democrat";
-    if (voteInfo.republican && (!voteInfo.democrat || voteInfo.democrat.count < voteInfo.republican.count)) {
+    var party = "democrat";    
+    if (voteInfo.republican && (!voteInfo.democrat || shiftedDemVote < shiftedRepVote)) {
       party = "republican";
     }
-    var contested = (!voteInfo.republican || !voteInfo.democrat) ? "uncontested" : "contested";
+    d3.selectAll('.d-' + number)
+      .classed('democrat', false)
+      .classed('republican', false)
+      .classed(party, true);
+  };
+  
+  if (loadedGeoByDistrict[number + ""]) {
+    colorDistrict();
+  } else {
+    d3.json("topojson/pa-" + number + ".topojson", function(error, district) {
+      if (error) {
+        throw error;
+      }
+      loadedGeoByDistrict[number + ""] = true;
 
-    var feature = topojson.feature(district, district.objects['pa-' + number]);
+      var feature = topojson.feature(district, district.objects['pa-' + number]);
+      var contested = (!voteInfo.republican || !voteInfo.democrat) ? "uncontested" : "contested";
+      
+      var bounds = path.bounds(feature);
+      var x_bounds = Math.abs(bounds[1][0] - bounds[0][0]);
+      var y_bounds = Math.abs(bounds[1][1] - bounds[0][1]);
+      var scale = Math.max(6000, 900000 / (Math.sqrt(x_bounds * y_bounds)));
 
-    var bounds = path.bounds(feature);
-    var x_bounds = Math.abs(bounds[1][0] - bounds[0][0]);
-    var y_bounds = Math.abs(bounds[1][1] - bounds[0][1]);
-    var scale = Math.max(6000, 900000 / (Math.sqrt(x_bounds * y_bounds)));
-
-    var mega_center = projection.invert(path.centroid(feature));
-    mega_center[0] += 1.3 / (scale / 8000);
-    mega_center[1] -= 0.4 / (scale / 8000);
+      var mega_center = projection.invert(path.centroid(feature));
+      mega_center[0] += 1.3 / (scale / 8000);
+      mega_center[1] -= 0.4 / (scale / 8000);
     
-    var mega_me = d3.geoMercator().scale(scale).center(mega_center);
-    var is_mega = false;
+      var mega_me = d3.geoMercator().scale(scale).center(mega_center);
+      var is_mega = false;
 
-    svg.insert("path")
-      .datum(feature)
-      .attr("class", ["district", party, contested].join(" "))
-      .attr("d", path)
-      .on("click", function() {
-        var border = d3.select(this);
-        if (border.classed('dull') && !is_mega) {
-          return;
-        }
+      svg.insert("path")
+        .datum(feature)
+        .attr("class", ["district", contested, "d-" + number].join(" "))
+        .attr("d", path)
+        .on("click", function() {
+          var border = d3.select(this);
+          if (border.classed('dull') && !is_mega) {
+            return;
+          }
         
-        is_mega = !is_mega;
-        d3.selectAll(".district").classed("dull", is_mega);
-        border
-          .classed("mega", is_mega)
-          .attr("d", is_mega ? path.projection(mega_me) : path.projection(projection));
-        if (is_mega) {
-          border.raise();
-        }
-/*
-        d3.selectAll(".district").style("fill", "#fc3c2f");
-        d3.select(this).style("fill", "#00f");
-*/
-      });
-  });
+          is_mega = !is_mega;
+          d3.selectAll(".district").classed("dull", is_mega);
+          border
+            .classed("mega", is_mega)
+            .attr("d", is_mega ? path.projection(mega_me) : path.projection(projection));
+          if (is_mega) {
+            border.raise();
+          }
+        });
+      colorDistrict();
+    });
+  }
 }
-
-var votesByDistrict = {};
 
 d3.json("vote-totals.json", function(err, districts) {
   if (err) {
@@ -74,8 +97,7 @@ d3.json("vote-totals.json", function(err, districts) {
   
   // generate the map
   for (var d = 1; d <= 18; d++) {
-    var district = districts[d + ""];
-    renderDistrict(d, district);
+    renderDistrict(d);
   }
 
   var datapoints = [];
@@ -123,6 +145,19 @@ d3.json("vote-totals.json", function(err, districts) {
     var voteRow = d3.select('#results').append('tr');
     if (revote === 0) {
       voteRow.attr('class', 'highlight');
+      basePercent = popPercentage;
+      d3.select("#mapshift")
+        .property('disabled', false)
+        .attr('min', popPercentage - 10)
+        .property('value', popPercentage)
+        .attr('max', popPercentage + 10)
+        .on('change', function() {
+          var shift = d3.select(this).property('value') - basePercent;
+          d3.select('#mapshift-container .change').text((shift > 0 ? ('+' + shift.toFixed(1)) : shift.toFixed(1)) + '%');
+          for (var d = 1; d <= 18; d++) {
+            renderDistrict(d, shift);
+          }
+        });
     }
     voteRow.append('td').text(popPercentage.toFixed(1) + '%');
     voteRow.append('td').text(democratSeats + ' (' + seatPercentage.toFixed(1) + '%)' + uncontested);

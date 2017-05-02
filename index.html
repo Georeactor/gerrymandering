@@ -11,10 +11,18 @@
       <div class="row">
         <div class="col-sm-12">
           <h2>Partisan Symmetry</h2>
+          <hr/>
+          <h4>Which districts would flip with a shift in support for Democrats?</h4>
           <label>
             <input type="checkbox" id="contested" checked="checked"/>
             <span>Show Uncontested Districts</span>
           </label>
+          <div id="mapshift-container">
+            <input id="mapshift" type="range" step="0.2"/>
+            <span class="min">-10%</span>
+            <span class="change">0%</span>
+            <span class="max">+10%</span>
+          </div>
           <div id="map">
           </div>
         </div>
