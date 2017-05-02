@@ -65,7 +65,8 @@ function renderDistrict(number, shift) {
       var mega_me = d3.geoMercator().scale(scale).center(mega_center);
       var is_mega = false;
 
-      svg.insert("path")
+      svg.append('g').attr("id", "d-" + number)
+      .insert("path")
         .datum(feature)
         .attr("class", ["district", contested, "d-" + number].join(" "))
         .attr("d", path)
@@ -85,6 +86,12 @@ function renderDistrict(number, shift) {
           }
         });
       colorDistrict();
+      
+      var ww = new Walkway({
+        selector: '#d-' + number,
+        duration: '3500'
+      });
+      ww.draw();
     });
   }
 }

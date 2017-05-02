@@ -5,6 +5,12 @@
 
 Candidate names and vote counts from New York Times and Wikipedia
 
+## Powered by
+
+* <a href='https://d3js.org'>D3.js</a>
+* TopoJSON
+* <a href='http://www.connoratherton.com/walkway'>Walkway.js</a> by Connor Atherton (MIT license)
+
 ## License
 
 MIT License

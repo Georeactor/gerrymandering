@@ -10,10 +10,9 @@
   display: block;
   float: right;
 }
-
 .district {
   stroke: #000;
-  stroke-width: 2;
+  stroke-width: 1.5;
 }
 .district.dull {
   fill-opacity: 0.25;
