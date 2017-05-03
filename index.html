@@ -27,6 +27,9 @@
         <div class="col-sm-12">
           <div class="well">
             <h4><strong>Lock in</strong>: which districts would flip with a significant shift in support for Democrats?</h4>
+            <div class="portrait-only mobile-only">
+              <h4>View this map widget in landscape mode!</h4>
+            </div>
             <label>
               <input type="checkbox" id="contested" checked="checked"/>
               <span>Show Uncontested Districts</span>
@@ -45,11 +48,11 @@
       <div class="row">
         <div class="col-sm-12 col-md-9">
           <h2>Justice Kennedy's opinion</h2>
-          <p><strong>The plurality decision</strong> was written by Antonin Scalia, and a <a href='https://www.law.cornell.edu/supct/html/02-1580.ZC.html'>concurring (but optimistic) opinion</a> was written by frequent swing-voter Anthony Kennedy:</p>
+          <p><strong>The plurality opinion</strong> avoiding action on Pennsylvania's districts was written by Justice Antonin Scalia. A <a href='https://www.law.cornell.edu/supct/html/02-1580.ZC.html'>concurring (but optimistic) opinion</a> was written by frequent swing-voter Justice Anthony Kennedy:</p>
           <blockquote>
-         Technology is both a threat and a promise… On the one hand, if courts refuse to entertain any claims of partisan gerrymandering, the temptation to use partisan favoritism in districting in an unconstitutional manner will grow. On the other hand, <strong>new technologies may produce new methods of analysis that make more evident the precise nature of the burdens gerrymanders impose on the representational rights of voters and parties</strong>. That would facilitate court efforts to identify and remedy the burdens, with judicial intervention limited by the derived standards.
+         "Technology is both a threat and a promise… On the one hand, if courts refuse to entertain any claims of partisan gerrymandering, the temptation to use partisan favoritism in districting in an unconstitutional manner will grow. On the other hand, <strong>new technologies may produce new methods of analysis that make more evident the precise nature of the burdens gerrymanders impose on the representational rights of voters and parties</strong>. That would facilitate court efforts to identify and remedy the burdens, with judicial intervention limited by the derived standards.
           <br/><br/>
-If suitable standards with which to measure the burden a gerrymander imposes on representational rights did emerge, hindsight would show that the Court prematurely abandoned the field.
+If suitable standards with which to measure the burden a gerrymander imposes on representational rights did emerge, hindsight would show that the Court prematurely abandoned the field."
           </blockquote>
           <p>Since then, there's been an ongoing discussion about what might be a good test to
           show unconstitutionally unfair districts. <strong>We can expect this to be a major issue</strong> as
@@ -104,45 +107,81 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
       <div class="row">
         <div class="col-sm-12">
           <div class="well">
-            <h4><strong>Lost votes</strong>: how are votes divided?</h4>
+            <h4><strong>Lost votes</strong>: how much does each vote count?</h4>
+            <div class="portrait-only mobile-only">
+              <h4>View this map widget in landscape mode!</h4>
+            </div>
             <p class="desktop-only">Click or tap a district to see it up-close:</p>
             <p class="mobile-only">Use the dropdown menu to select a district:</p>
             <div id="sidebar">
               <select id="zoomer" class="mobile-only">
-                <option>PA-1 (Dem)</option>
-                <option>PA-2 (Dem)</option>
-                <option>PA-3 (Rep)</option>
-                <option>PA-4 (Rep)</option>
-                <option>PA-5 (Rep)</option>
-                <option>PA-6 (Rep)</option>
-                <option>PA-7 (Rep)</option>
-                <option>PA-8 (Rep)</option>
-                <option>PA-9 (Rep)</option>
-                <option>PA-10 (Rep)</option>
-                <option>PA-11 (Rep)</option>
-                <option>PA-12 (Rep)</option>
-                <option>PA-13 (Dem)</option>
-                <option>PA-14 (Dem)</option>
-                <option>PA-15 (Rep)</option>
-                <option>PA-16 (Rep)</option>
-                <option>PA-17 (Dem)</option>
-                <option>PA-18 (Rep)</option>
+                <option selected>-select one-</option>
+                <option value='1'>PA-1 (Dem)</option>
+                <option value='2'>PA-2 (Dem)</option>
+                <option value='3'>PA-3 (Rep)</option>
+                <option value='4'>PA-4 (Rep)</option>
+                <option value='5'>PA-5 (Rep)</option>
+                <option value='6'>PA-6 (Rep)</option>
+                <option value='7'>PA-7 (Rep)</option>
+                <option value='8'>PA-8 (Rep)</option>
+                <option value='9'>PA-9 (Rep)</option>
+                <option value='10'>PA-10 (Rep)</option>
+                <option value='11'>PA-11 (Rep)</option>
+                <option value='12'>PA-12 (Rep)</option>
+                <option value='13'>PA-13 (Dem)</option>
+                <option value='14'>PA-14 (Dem)</option>
+                <option value='15'>PA-15 (Rep)</option>
+                <option value='16'>PA-16 (Rep)</option>
+                <option value='17'>PA-17 (Dem)</option>
+                <option value='18'>PA-18 (Rep)</option>
               </select>
-              <p>Stats show here</p>
+              <div id='stats' class='hide'>
+                <table class='table'>
+                  <tr>
+                    <th>Candidate</th>
+                    <th>Votes</th>
+                    <th>Won?</th>
+                  </tr>
+                  <tr class='republican'>
+                  </tr>
+                  <tr class='democrat'>
+                  </tr>
+                </table>
+                <strong>Whose votes were 'wasted' ?</strong>
+                <br/>
+                <div id='wasted'>
+                  <div class='republican'></div>
+                  <div class='democrat'></div>
+                </div>
+              </div>
             </div>
             <div id="map2">
             </div>
+            <div class="clearfix">
+            </div>
           </div>
+          <p>By this metric, the Democrats lost more votes than the Republicans in all but two contested districts.
+          Even other districts that they won count against them, because the Democratic candidates received so much
+          more than 50% of the vote.</p>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
           <h3>Other methods</h3>
           <hr/>
-          <p>Another two interesting methods (which I won't demo here to cause problems for your browser) are
-          <strong>compactness</strong> and <strong>random simulations</strong>.</p>
-          <p>When most people think of gerrymandering, they point to unusual shapes as examples of shady redistricting gone amok. Several states require their districts to be geometrically compact, by comparing the edges or area of the shape
-          to a circle.</p>
+          <p>Another two interesting methods (which I might demo here in the future) are:
+          <h4>Compactness</h4>
+          <p>When most people think of gerrymandering, they point to unusually-shaped districts as examples of shady redistricting gone amok. <a href='http://redistricting.lls.edu/where-state.php#compactness'>Multiple states</a> require their districts to be <em>geometrically compact</em>, by comparing the edges or area of the shape to a simplified ideal. You could compare the shape to a circle of the same area, or the smallest circle which encloses the district, or a convex polygon.</p>
+          <p>Many unusually-shaped districts, such as <a href='https://en.wikipedia.org/wiki/Illinois%27s_4th_congressional_district'>Illinois's 4th District</a> are created as
+          majority-minority districts, to better represent minority groups in Congress. These were created and continue
+          to be protected by the Voting Rights Act (it's a separate section from the rules struck down in 
+          2013 by <i><a href='https://en.wikipedia.org/wiki/Shelby_County_v._Holder'>Shelby County v. Holder</a></i>).</p>
+          <p>The general consensus is that compactness could be a helpful standard in redistricting, but it can't be the
+          only factor that's considered. You can read more about <a href='http://www-personal.umich.edu/~jowei/florida.pdf'>how compactness can still cause 'unintentional gerrymandering' [PDF]</a> and how <a href='http://www.dailykos.com/story/2015/5/12/1384062/-Compactness-is-a-terrible-standard-for-redistricting-and-determining-if-maps-were-gerrymandered'>purely computer-drawn lines can be discriminatory</a>.</p>
+          <h4>Random simulations</h4>
+          <p>A computer can generate many thousands of redistricting maps, and show that the state's chosen map is multiple
+          standard deviations more partisan when compared to its alternatives. You can see examples of how this could be applied in <a href='http://mike.teczno.com/notes/redistricting/random-wisconsin-plans.html'>Wisconsin</a> and in <a href='https://www.nytimes.com/2014/01/26/opinion/sunday/its-the-geography-stupid.html?_r=0'>national maps</a>.
+          </p>
         </div>
       </div>
       <div class="row">
@@ -166,13 +205,12 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
         <div class="col-sm-12 col-md-9">
           <h3>About this page</h3>
           <p>The source code for this page <a href='https://github.com/Georeactor/gerrymandering'>is open source</a>.
-          It uses D3, Walkway.js, and election boundaries from <a href='https://github.com/Schwanksta/2016-congressional-districts'>Ken Schwencke's national repo.</a></p>
-          <p>My main sources of political science background were <u>Gerrymandering in America</u> and <u>Drawing the Lines: Constraints on Partisan Gerrymandering in U.S. Politics</u>.</p>
+          It uses D3, Walkway.js, and election boundaries from <a href='https://github.com/Schwanksta/2016-congressional-districts'>Ken Schwencke's national repo.</a>. Vote totals via the New York Times and Wikipedia.</p>
+          <p>Some recent books to check out are <u>Gerrymandering in America</u> and <u>Drawing the Lines: Constraints on Partisan Gerrymandering in U.S. Politics</u>.</p>
           This page isn't my day job. If this was cool and informative, please consider sending a few $ on Venmo (@<span>mapmeld</span>)
           <br/>or ฿ bitcoin (<a href='https://i.imgur.com/00vl9Lj.png'>1E2hWkpTCQu3qSbVz8SCqEUrRTD6EySzjC</a>).
           <br/><br/>
-          If this goes well, I'll try writing an article about maps, quantum computing, or language support in Unicode.
-          I'm <a href='https://twitter.com/mapmeld'>@mapmeld</a> on Twitter.
+          If this goes well, I'll try writing an article about other maps, quantum computing, or language support in Unicode.
         </div>
       </div>
       <br/>

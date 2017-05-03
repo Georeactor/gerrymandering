@@ -1,3 +1,7 @@
+.centered {
+  text-align: center;
+}
+
 #mapshift-container, #mapshift {
   text-align: center;
   max-width: 700px;
@@ -43,15 +47,47 @@ svg#graph {
 p {
   font-size: 112%;
 }
+#map2 {
+  float: left;
+}
 #map2 .district {
   transition: 2.2s;
 }
 #sidebar {
-  float: right;
+  position: absolute;
+  right: 15px;
+  border-left: 1px solid #000;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 8px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#sidebar table {
+  background: #fff;
+}
+table .democrat td:last-child, #wasted .democrat {
+  color: blue;
+}
+table .republican td:last-child, #wasted .republican {
+  color: red;
 }
 
 .mobile-only {
   display: none;
+}
+.portrait-only {
+  display: none;
+}
+.clearfix {
+  clear: both;
+}
+
+@media (orientation: portrait) {
+  .portrait-only {
+    display: block;
+  }
 }
 
 @media (max-width: 800px) {
