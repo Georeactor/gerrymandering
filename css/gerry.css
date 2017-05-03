@@ -83,6 +83,15 @@ table .republican td:last-child, #wasted .republican {
 .clearfix {
   clear: both;
 }
+.hover-help {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 8px;
+  border: 1px solid #000;
+  font-size: 120%;
+  border-radius: 8px;
+}
 
 @media (max-width: 800px) {
   .mobile-only {
@@ -90,6 +99,12 @@ table .republican td:last-child, #wasted .republican {
   }
   
   .desktop-only {
+    display: none;
+  }
+}
+
+@media (max-width: 970px) {
+  .hover-help {
     display: none;
   }
 }

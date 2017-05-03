@@ -10,14 +10,27 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-sm-9">
-          <h2>Gerrymandering and Justice Kennedy's "Hackathon Pitch"</h2>
+        <div class="desktop-only">
+          <div class="hover-help">
+            <strong>What is gerrymandering? 🇺🇸 </strong>
+            <ul>
+              <li>
+                <a href='https://www.wired.com/2017/04/how-math-can-save-democracy/'>Wired Magazine</a>
+              </li>
+              <li>
+                <a href='https://www.youtube.com/watch?v=A-4dIImaodQ'>John Oliver (HBO)</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-9">
+          <h2>Gerrymandering and Justice Kennedy's Hackathon Pitch</h2>
           <p>
-          <strong>In <i><a href='https://en.wikipedia.org/wiki/Vieth_v._Jubelirer'>Vieth v. Jubelirer (2004)</a></i></strong>, the Supreme Court declined to intervene in the redistricting of
-          Pennsylvania's Congressional districts. Racially discriminatory gerrymandering has been struck down by the
-          Supreme Court many times, but the Court could not find a formula for evaluating <em>partisan gerrymandering</em> - disenfranchising voters of a political party.</p>
-          <p><strong>The 2010 census</strong> determined new Congressional districts for the 2012 election.
-          In an election where a slim majority (50.28%) of Pennsylvania's popular vote was for Democratic candidates, Republicans
+          <strong>In <i><a href='https://en.wikipedia.org/wiki/Vieth_v._Jubelirer'>Vieth v. Jubelirer (2004)</a></i></strong>, the Supreme Court decided not to intervene in the redrawing of
+          Pennsylvania's Congressional districts. Racially discriminatory gerrymandering has been struck down by
+          judges many times, but the Court could not find a formula for evaluating <em>partisan gerrymandering</em> - disenfranchising voters of a political party.</p>
+          <p><strong>The 2010 census</strong> then determined new Congressional districts.
+          Though a slim majority (50.28%) of Pennsylvania's popular vote was for Democratic candidates, Republicans
           won thirteen seats to Democrats' five. The parties continued to win the same districts in 2014 and 2016 (mapped below).
           </p>
           <br/>
@@ -47,16 +60,19 @@
       </div>
       <div class="row">
         <div class="col-sm-12 col-md-9">
-          <h2>Justice Kennedy's opinion</h2>
-          <p><strong>The plurality opinion</strong> avoiding action on Pennsylvania's districts was written by Justice Antonin Scalia. A <a href='https://www.law.cornell.edu/supct/html/02-1580.ZC.html'>concurring (but optimistic) opinion</a> was written by frequent swing-voter Justice Anthony Kennedy:</p>
+          <h2>Justice Kennedy on technology</h2>
+          <p><strong>The plurality opinion</strong> which ruled Pennsylvania's districts unactionable was written by Justice Antonin Scalia. A <a href='https://www.law.cornell.edu/supct/html/02-1580.ZC.html'>concurring (but optimistic) opinion</a> was written by frequent swing-voter Justice Anthony Kennedy:</p>
           <blockquote>
          "Technology is both a threat and a promise… On the one hand, if courts refuse to entertain any claims of partisan gerrymandering, the temptation to use partisan favoritism in districting in an unconstitutional manner will grow. On the other hand, <strong>new technologies may produce new methods of analysis that make more evident the precise nature of the burdens gerrymanders impose on the representational rights of voters and parties</strong>. That would facilitate court efforts to identify and remedy the burdens, with judicial intervention limited by the derived standards.
           <br/><br/>
 If suitable standards with which to measure the burden a gerrymander imposes on representational rights did emerge, hindsight would show that the Court prematurely abandoned the field."
           </blockquote>
+          <p>I like to think of this as Justice Kennedy's "hackathon pitch."</p>
           <p>Since then, there's been an ongoing discussion about what might be a good test to
-          show unconstitutionally unfair districts. <strong>We can expect this to be a major issue</strong> as
-          we get closer to the 2020 Census. I'm going to show you two of the best methods:</p>
+          show unconstitutionally unfair districts. There needs to be an objective mathematical formula,
+          and a solid constitutional argument, for changing the system. <strong>We can expect this to be a major issue</strong> as
+          we get closer to the 2020 Census.</p>
+          <p>I'm going to show you two of the best methods:</p>
           <br/>
         </div>
       </div>
@@ -68,7 +84,8 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
           if the parties were to switch statewide vote totals, they would also switch seat totals.</p>
           <p>In an ideal
           system, the parties would have equal representation at 50% and mirror each others achievements as their
-          vote total rose. Using the same data as the map at the top of the page, we can predict that Democrats would need around 56% of the vote to win just 7 of Pennsylvania's
+          vote total rose. Because we have a <i>first past the post</i> system, small increases add seats faster than proportional
+          representation. Using the same data as the map at the top of the page, we can predict that Democrats would need around 56% of the vote to win just 7 of Pennsylvania's
           15 contested Congressional elections.</p>
         </div>
       </div>
@@ -160,16 +177,16 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
             <div class="clearfix">
             </div>
           </div>
-          <p>By this metric, the Democrats lost more votes than the Republicans in all but two contested districts.
-          Even other districts that they won count against them, because the Democratic candidates received so much
+          <p>By this metric, the Democrats lost more votes than the Republicans in all but two of the contested districts.
+          Even districts that they won in Philadelphia count against them, because the Democratic candidates received so much
           more than 50% of the vote.</p>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 col-md-10">
+          <br/>
           <h3>Other methods</h3>
           <hr/>
-          <p>Another two interesting methods (which I might demo here in the future) are:
           <h4>Compactness</h4>
           <p>When most people think of gerrymandering, they point to unusually-shaped districts as examples of shady redistricting gone amok. <a href='http://redistricting.lls.edu/where-state.php#compactness'>Multiple states</a> require their districts to be <em>geometrically compact</em>, by comparing the edges or area of the shape to a simplified ideal. You could compare the shape to a circle of the same area, or the smallest circle which encloses the district, or a convex polygon.</p>
           <p>Many unusually-shaped districts, such as <a href='https://en.wikipedia.org/wiki/Illinois%27s_4th_congressional_district'>Illinois's 4th District</a> are created as
@@ -177,7 +194,7 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
           to be protected by the Voting Rights Act (it's a separate section from the rules struck down in 
           2013 by <i><a href='https://en.wikipedia.org/wiki/Shelby_County_v._Holder'>Shelby County v. Holder</a></i>).</p>
           <p>The general consensus is that compactness could be a helpful standard in redistricting, but it can't be the
-          only factor that's considered. You can read more about <a href='http://www-personal.umich.edu/~jowei/florida.pdf'>how compactness can still cause 'unintentional gerrymandering' [PDF]</a> and how <a href='http://www.dailykos.com/story/2015/5/12/1384062/-Compactness-is-a-terrible-standard-for-redistricting-and-determining-if-maps-were-gerrymandered'>purely computer-drawn lines can be discriminatory</a>.</p>
+          only factor that's considered. You can read more about <a href='http://www-personal.umich.edu/~jowei/florida.pdf'>how compactness can still cause 'unintentional gerrymandering' [PDF]</a> (because so many Democratic voters live in densely-populated areas) and how <a href='http://www.dailykos.com/story/2015/5/12/1384062/-Compactness-is-a-terrible-standard-for-redistricting-and-determining-if-maps-were-gerrymandered'>purely computer-drawn lines can be discriminatory</a>.</p>
           <h4>Random simulations</h4>
           <p>A computer can generate many thousands of redistricting maps, and show that the state's chosen map is multiple
           standard deviations more partisan when compared to its alternatives. You can see examples of how this could be applied in <a href='http://mike.teczno.com/notes/redistricting/random-wisconsin-plans.html'>Wisconsin</a> and in <a href='https://www.nytimes.com/2014/01/26/opinion/sunday/its-the-geography-stupid.html?_r=0'>national maps</a>.
@@ -185,10 +202,19 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 col-md-10">
+          <br/>
           <h3>It hasn't always been this way</h3>
           <hr/>
-          
+          <p>Up until the 1960s, many states would leave their boundaries stagnant to protect incumbents and empower rural voters. <a href='https://en.wikipedia.org/wiki/Baker_v._Carr'>In a case</a> where one district’s population outnumbered another almost 10:1, the Supreme Court began to intervene. Since then, <strong>even a 1% difference</strong> between the most and least-populous districts has been ruled unconstitutional under
+          <a href='https://en.wikipedia.org/wiki/One_man,_one_vote#United_States'>“one person, one vote”</a>. Theoretically this guarantees proportional representation within each state (remember that Wyoming’s one district and a district in California have considerably different populations).</p>
+          <p>After that decision, districts had to be redrawn after every census. This meant more frequent changes, but
+          politicians found it difficult to design manipulative equal-population districts, until computers got involved.</p>
+          <p>In studies of redistricting after the 1990 and 2000 census, partisan gerrymandering was not seen as a significant factor - research in <u>Drawing the Lines</u> points to a problem with both partisan and bipartisan legislatures, who would
+          use gerrymandering to protect incumbents. The 2010 census and 2012 election were a major change:</p>
+          <p>From <u>Gerrymandering in America</u>:</p>
+          <blockquote>…the consensus of the academic literature was that redistricting had only minor political effects. Incidentally, we are not challenging the consensus of this literature — there really does not appear to be much partisan bias in this time period. Rather, what we are arguing is that… the world changed, and it became possible to take partisan gerrymandering to its limits.</blockquote>
+
           <p>So it hasn't always been this way. <strong>And more importantly, it doesn't have to be.</strong></p>
           <br/>
           <br/>
@@ -205,10 +231,10 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
         <div class="col-sm-12 col-md-9">
           <h3>About this page</h3>
           <p>The source code for this page <a href='https://github.com/Georeactor/gerrymandering'>is open source</a>.
-          It uses D3, Walkway.js, and election boundaries from <a href='https://github.com/Schwanksta/2016-congressional-districts'>Ken Schwencke's national repo.</a>. Vote totals via the New York Times and Wikipedia.</p>
-          <p>Some recent books to check out are <u>Gerrymandering in America</u> and <u>Drawing the Lines: Constraints on Partisan Gerrymandering in U.S. Politics</u>.</p>
+          It uses D3, Walkway.js, and election boundaries from <a href='https://github.com/Schwanksta/2016-congressional-districts'>Ken Schwencke's national repo</a>. Vote totals via the New York Times and Wikipedia.</p>
+          <p>Reading: <u>Gerrymandering in America</u> and <u>Drawing the Lines: Constraints on Partisan Gerrymandering in U.S. Politics</u>.</p>
           This page isn't my day job. If this was cool and informative, please consider sending a few $ on Venmo (@<span>mapmeld</span>)
-          <br/>or ฿ bitcoin (<a href='https://i.imgur.com/00vl9Lj.png'>1E2hWkpTCQu3qSbVz8SCqEUrRTD6EySzjC</a>).
+          or ฿ bitcoin (<a href='https://i.imgur.com/00vl9Lj.png'>1E2hWkpTCQu3qSbVz8SCqEUrRTD6EySzjC</a>).
           <br/><br/>
           If this goes well, I'll try writing an article about other maps, quantum computing, or language support in Unicode.
         </div>
