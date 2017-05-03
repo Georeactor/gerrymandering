@@ -73,7 +73,7 @@ function clickDistrict(number, quickSwitch) {
     
     // to make this district appear over the top of the others, call raise()
     d3.select('#map2 .d-' + number).raise();
-    //d3.select('#districtnum').text(number);
+    d3.select('#districtnum').text(number);
     
     // create a row of vote stats for the Republican candidate
     var repRow = d3.select('#stats .republican').html('');
