@@ -46,3 +46,20 @@ p {
 #map2 .district {
   transition: 2.2s;
 }
+#sidebar {
+  float: right;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .mobile-only {
+    display: block;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+}

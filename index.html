@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Gerrymandering</title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/gerry.css"/>
@@ -16,7 +17,7 @@
           Pennsylvania's Congressional districts. Racially discriminatory gerrymandering has been struck down by the
           Supreme Court many times, but the Court could not find a formula for evaluating <em>partisan gerrymandering</em> - disenfranchising voters of a political party.</p>
           <p><strong>The 2010 census</strong> determined new Congressional districts for the 2012 election.
-          In an election where a slim majority (50.28%) of the popular vote was for Democratic candidates, Republicans
+          In an election where a slim majority (50.28%) of Pennsylvania's popular vote was for Democratic candidates, Republicans
           won thirteen seats to Democrats' five. The parties continued to win the same districts in 2014 and 2016 (mapped below).
           </p>
           <br/>
@@ -97,7 +98,31 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
         <div class="col-sm-12">
           <div class="well">
             <h4><strong>Lost votes</strong>: how are votes divided?</h4>
-            <p>Click or tap a district to see it up-close:</p>
+            <p class="desktop-only">Click or tap a district to see it up-close:</p>
+            <p class="mobile-only">Use the dropdown menu to select a district:</p>
+            <div id="sidebar">
+              <select id="zoomer" class="mobile-only">
+                <option>PA-1 (Dem)</option>
+                <option>PA-2 (Dem)</option>
+                <option>PA-3 (Rep)</option>
+                <option>PA-4 (Rep)</option>
+                <option>PA-5 (Rep)</option>
+                <option>PA-6 (Rep)</option>
+                <option>PA-7 (Rep)</option>
+                <option>PA-8 (Rep)</option>
+                <option>PA-9 (Rep)</option>
+                <option>PA-10 (Rep)</option>
+                <option>PA-11 (Rep)</option>
+                <option>PA-12 (Rep)</option>
+                <option>PA-13 (Dem)</option>
+                <option>PA-14 (Dem)</option>
+                <option>PA-15 (Rep)</option>
+                <option>PA-16 (Rep)</option>
+                <option>PA-17 (Dem)</option>
+                <option>PA-18 (Rep)</option>
+              </select>
+              <p>Stats show here</p>
+            </div>
             <div id="map2">
             </div>
           </div>
@@ -132,10 +157,15 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
       <br/>
       <div class="row">
         <div class="col-sm-9">
-          If this was cool and informative, please consider sending a few $ on Venmo (@<span>mapmeld</span>)
+          <h3>About this page</h3>
+          <p>The source code for this page <a href='https://github.com/Georeactor/gerrymandering'>is open source</a>.
+          It uses D3, Walkway.js, and election boundaries from <a href='https://github.com/Schwanksta/2016-congressional-districts'>Ken Schwencke's national repo.</a></p>
+          <p>My main sources of political science background were <u>Gerrymandering in America</u> and <u>Drawing the Lines: Constraints on Partisan Gerrymandering in U.S. Politics</u>.</p>
+          This page isn't my day job. If this was cool and informative, please consider sending a few $ on Venmo (@<span>mapmeld</span>)
           <br/>or ฿ bitcoin (<a href='https://i.imgur.com/00vl9Lj.png'>1E2hWkpTCQu3qSbVz8SCqEUrRTD6EySzjC</a>).
           <br/><br/>
           If this goes well, I'll try writing an article about maps, quantum computing, or language support in Unicode.
+          I'm <a href='https://twitter.com/mapmeld'>@mapmeld</a> on Twitter.
         </div>
       </div>
       <br/>
