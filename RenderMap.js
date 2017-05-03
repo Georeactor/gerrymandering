@@ -2,8 +2,17 @@ var width = 700,
   height = 380;
 
 var projection = d3.geoMercator()
-    .center([-76.3, 40.6])
-    .scale(6000);
+    .center([-76.3, 40.6]);
+
+var testWidth = d3.select('#map').style('width').replace('px', '') * 1;
+if (testWidth < 700) {
+  width = testWidth;
+  height = Math.ceil(380 * testWidth / 700);
+  projection.center([-73.4, 39.31])
+    .scale(3660);
+} else {
+  projection.scale(6000);
+}
 
 var path = d3.geoPath()
   .projection(projection);
