@@ -84,12 +84,6 @@ table .republican td:last-child, #wasted .republican {
   clear: both;
 }
 
-@media (orientation: portrait) {
-  .portrait-only {
-    display: block;
-  }
-}
-
 @media (max-width: 800px) {
   .mobile-only {
     display: block;
@@ -97,5 +91,11 @@ table .republican td:last-child, #wasted .republican {
   
   .desktop-only {
     display: none;
+  }
+}
+
+@media only screen and (orientation : portrait) {
+  .portrait-only {
+    display: block;
   }
 }

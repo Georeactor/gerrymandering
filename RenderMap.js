@@ -122,7 +122,7 @@ d3.select('#zoomer').on('change', function() {
 function renderDistrict(number, shift) {
   var voteInfo = votesByDistrict[number + ""];
   if (!shift) {
-      shift = 0;
+    shift = 0;
   }
     
   var colorDistrict = function() {
@@ -186,11 +186,13 @@ function renderDistrict(number, shift) {
         });
       colorDistrict();
       
-      var ww = new Walkway({
-        selector: '#d-' + number,
-        duration: '3500'
-      });
-      ww.draw();
+      if (testWidth > 700) {
+        var ww = new Walkway({
+          selector: '#d-' + number,
+          duration: '3500'
+        });
+        ww.draw();
+      }
     });
   }
 }
