@@ -67,7 +67,7 @@
       <div class="row">
         <div class="col-sm-12 col-md-9">
           <h2>Justice Kennedy on technology</h2>
-          <p><strong>The plurality opinion</strong> which ruled Pennsylvania's districts unactionable was written by Justice Antonin Scalia. A <a href='https://www.law.cornell.edu/supct/html/02-1580.ZC.html'>concurring (but optimistic) opinion</a> was written by frequent swing-voter Justice Anthony Kennedy:</p>
+          <p>In the same case, a <a href='https://www.law.cornell.edu/supct/html/02-1580.ZC.html'>concurring (but optimistic) opinion</a> was written by frequent swing-voter Justice Anthony Kennedy:</p>
           <blockquote>
          "Technology is both a threat and a promise… On the one hand, if courts refuse to entertain any claims of partisan gerrymandering, the temptation to use partisan favoritism in districting in an unconstitutional manner will grow. On the other hand, <strong>new technologies may produce new methods of analysis that make more evident the precise nature of the burdens gerrymanders impose on the representational rights of voters and parties</strong>. That would facilitate court efforts to identify and remedy the burdens, with judicial intervention limited by the derived standards.
           <br/><br/>
@@ -78,7 +78,7 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
           show unconstitutionally unfair districts. There needs to be an objective mathematical formula,
           and a solid constitutional argument, for changing the system. <strong>We can expect this to be a major issue</strong> as
           we get closer to the 2020 Census.</p>
-          <p>I'm going to show you two of the best methods:</p>
+          <p>Let's look at some of the best methods:</p>
           <br/>
         </div>
       </div>
@@ -111,6 +111,16 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
           <h4>Trendline</h4>
           <svg id="graph">
           </svg>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          In a system with partisan symmetry, this graph would look like an <em>S</em> curve
         </div>
       </div>
       <div class="row">
@@ -192,17 +202,30 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
       <div class="row">
         <div class="col-sm-12 col-md-10">
           <br/>
-          <h3>Other methods</h3>
+          <h3>Compactness</h3>
           <hr/>
-          <h4>Compactness</h4>
           <p>When most people think of gerrymandering, they point to unusually-shaped districts as examples of shady redistricting gone amok. <a href='http://redistricting.lls.edu/where-state.php#compactness'>Multiple states</a> require their districts to be <em>geometrically compact</em>, by comparing the edges or area of the shape to a simplified ideal. You could compare the shape to a circle of the same area, or the smallest circle which encloses the district, or a convex polygon.</p>
+          <div class="well">
+            <h4><a href='https://en.wikipedia.org/wiki/Pennsylvania%27s_7th_congressional_district'>Pennsylvania's 7th District</a> has been called <a href='http://www.philly.com/philly/blogs/our-money/Getting-to-know-the-ridiculous-new-7th-congressional-district.html'>
+            the eighth-least compact district nationwide.</a></h4>
+            <div id="compact1">
+            </div>
+            <div id="compact2">
+            </div>
+          </div>
           <p>Many unusually-shaped districts, such as <a href='https://en.wikipedia.org/wiki/Illinois%27s_4th_congressional_district'>Illinois's 4th District</a>, are created as
           majority-minority districts to better represent our population in Congress. These were created and continue
           to be protected by the Voting Rights Act (it's a separate section from the rules struck down in 
           2013 by <i><a href='https://en.wikipedia.org/wiki/Shelby_County_v._Holder'>Shelby County v. Holder</a></i>).</p>
           <p>The general consensus is that compactness could be a helpful standard in redistricting, but it can't be the
           only factor that's considered. You can read more about <a href='http://www-personal.umich.edu/~jowei/florida.pdf'>how compactness can still cause 'unintentional gerrymandering' [PDF]</a> (because so many Democratic voters live in densely-populated areas) and how <a href='http://www.dailykos.com/story/2015/5/12/1384062/-Compactness-is-a-terrible-standard-for-redistricting-and-determining-if-maps-were-gerrymandered'>purely computer-drawn lines can be discriminatory</a>.</p>
-          <h4>Random simulations</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-10">
+          <br/>
+          <h3>Random simulations</h3>
+          <hr/>
           <p>A computer can generate many thousands of redistricting maps, and show that the state's chosen map is multiple
           standard deviations more partisan when compared to its alternatives. You can see examples of how this could be applied in <a href='http://mike.teczno.com/notes/redistricting/random-wisconsin-plans.html'>Wisconsin</a> and in <a href='https://www.nytimes.com/2014/01/26/opinion/sunday/its-the-geography-stupid.html?_r=0'>national maps</a>.
           </p>
@@ -221,7 +244,10 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
           use gerrymandering to protect incumbents. The 2010 census and 2012 election were a major shift:</p>
           <p>From <u>Gerrymandering in America</u>:</p>
           <blockquote>…the consensus of the academic literature was that redistricting had only minor political effects. Incidentally, we are not challenging the consensus of this literature — there really does not appear to be much partisan bias in this time period. Rather, what we are arguing is that… the world changed, and it became possible to take partisan gerrymandering to its limits.</blockquote>
-          <p>But it hasn't always been this way. <strong>And it doesn't have to be.</strong></p>
+          <p>But it hasn't always been this way. <strong>And it doesn't have to be.</strong>
+          <br/>Cases against partisan
+          gerrymandering in <a href='https://www.brennancenter.org/analysis/ongoing-partisan-gerrymandering-cases'>
+          Wisconsin, Maryland, and North Carolina are moving forward</a> and may set one of these methods as the standard.</p>
           <br/>
           <br/>
           <blockquote>
@@ -237,12 +263,13 @@ If suitable standards with which to measure the burden a gerrymander imposes on 
         <div class="col-sm-12 col-md-9">
           <h3>About this page</h3>
           <p>The source code for this page <a href='https://github.com/Georeactor/gerrymandering'>is open source</a>.
-          It uses D3, Walkway.js, and election boundaries from <a href='https://github.com/Schwanksta/2016-congressional-districts'>Ken Schwencke's national repo</a>. Vote totals via the New York Times and Wikipedia.</p>
-          <p>Reading: <u>Gerrymandering in America</u> and <u>Drawing the Lines: Constraints on Partisan Gerrymandering in U.S. Politics</u>.</p>
-          This page isn't my day job. If this was cool and informative, please consider sending a few $ on Venmo (@<span>mapmeld</span>)
+          It uses D3, Walkway.js, and boundaries from <a href='https://github.com/Schwanksta/2016-congressional-districts'>Ken Schwencke's national repo</a>. Vote totals via the New York Times and Wikipedia.</p>
+          <p>Recommended reading: <u>Gerrymandering in America</u> and <u>Drawing the Lines: Constraints on Partisan Gerrymandering in U.S. Politics</u>.</p>
+          If this was cool and informative, please consider sending a few $ on Venmo (@<span>mapmeld</span>)
           or ฿ bitcoin (<a href='https://i.imgur.com/00vl9Lj.png'>1E2hWkpTCQu3qSbVz8SCqEUrRTD6EySzjC</a>).
           <br/><br/>
-          If this goes well, I'll try writing an article about other maps, quantum computing, or language support in Unicode.
+          If this goes well, I'll try writing an article on other maps, quantum computing, or Unicode language support in the future.
+          <br/><br/>
         </div>
       </div>
       <br/>

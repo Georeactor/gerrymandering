@@ -45,7 +45,11 @@ svg#graph {
   width: auto;
 }
 p {
+  line-height: 160%;
   font-size: 112%;
+}
+blockquote {
+  margin-top: 18px;
 }
 #map2 {
   float: left;
@@ -91,6 +95,17 @@ table .republican td:last-child, #wasted .republican {
   border: 1px solid #000;
   font-size: 120%;
   border-radius: 8px;
+}
+#compact1, #compact2 {
+  display: inline-block;
+  border: 1px solid #000;
+}
+#compact3 {
+  display: inline-block;
+  vertical-align: middle;
+}
+#compact1 .district, #compact2 .district {
+  fill: #0f0;
 }
 
 @media (max-width: 800px) {

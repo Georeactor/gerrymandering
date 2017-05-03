@@ -31,6 +31,13 @@ var svg2 = d3.select("#map2").append("svg")
   .attr("width", width)
   .attr("height", height);
 
+d3.select("#compact1").append("svg")
+  .attr("width", 200)
+  .attr("height", 200);
+d3.select("#compact2").append("svg")
+  .attr("width", 200)
+  .attr("height", 200);
+
 // global variables once loaded
 var votesByDistrict = {};
 var loadedGeoByDistrict = {};
@@ -73,7 +80,7 @@ function clickDistrict(number, quickSwitch) {
     
     // to make this district appear over the top of the others, call raise()
     d3.select('#map2 .d-' + number).raise();
-    d3.select('#districtnum').text(number);;
+    d3.select('#districtnum').text(number);
     
     // create a row of vote stats for the Republican candidate
     var repRow = d3.select('#stats .republican').html('');
@@ -240,6 +247,31 @@ function renderDistrict(number, shift) {
         .on("click", function() {
           clickDistrict(number);
         });
+    
+      // add PA-7 to the compactness ones
+      if (number * 1 === 7) {
+        var compactproj = d3.geoMercator()
+          .center([-73.25, 39.31])
+          .scale(8800);
+        var compactpath = d3.geoPath()
+          .projection(compactproj);
+        d3.select('#compact1 svg').insert("circle")
+          .attr("cx", 110)
+          .attr("cy", 100)
+          .attr("r", 83);
+        d3.select('#compact2 svg').insert("circle")
+          .attr("cx", 110)
+          .attr("cy", 100)
+          .attr("r", 49);
+        d3.select('#compact1 svg').insert("path")
+          .datum(feature)
+          .attr("class", ["district", "d-" + number].join(" "))
+          .attr("d", compactpath);
+        d3.select('#compact2 svg').insert("path")
+          .datum(feature)
+          .attr("class", ["district", "d-" + number].join(" "))
+          .attr("d", compactpath);
+      }
     
       // color both districts now
       colorDistrict();
