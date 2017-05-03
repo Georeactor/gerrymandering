@@ -12,6 +12,10 @@ var svg = d3.select("#map").append("svg")
   .attr("width", width)
   .attr("height", height);
 
+var svg2 = d3.select("#map2").append("svg")
+  .attr("width", width)
+  .attr("height", height);
+
 var votesByDistrict = {};
 var loadedGeoByDistrict = {};
 var basePercent = 0;
@@ -35,10 +39,14 @@ function renderDistrict(number, shift) {
     if (voteInfo.republican && (!voteInfo.democrat || shiftedDemVote < shiftedRepVote)) {
       party = "republican";
     }
-    d3.selectAll('.d-' + number)
+    d3.select('#map .d-' + number)
       .classed('democrat', false)
       .classed('republican', false)
       .classed(party, true);
+
+    if (!shift) {
+      d3.select('#map2 .d-' + number).classed(party, true); 
+    }
   };
   
   if (loadedGeoByDistrict[number + ""]) {
@@ -66,9 +74,14 @@ function renderDistrict(number, shift) {
       var is_mega = false;
 
       svg.append('g').attr("id", "d-" + number)
-      .insert("path")
+        .insert("path")
+          .datum(feature)
+          .attr("class", ["district", contested, "d-" + number].join(" "))
+          .attr("d", path);
+
+      svg2.insert("path")
         .datum(feature)
-        .attr("class", ["district", contested, "d-" + number].join(" "))
+        .attr("class", ["district", "d-" + number].join(" "))
         .attr("d", path)
         .on("click", function() {
           var border = d3.select(this);
@@ -77,13 +90,21 @@ function renderDistrict(number, shift) {
           }
         
           is_mega = !is_mega;
-          d3.selectAll(".district").classed("dull", is_mega);
-          border
-            .classed("mega", is_mega)
-            .attr("d", is_mega ? path.projection(mega_me) : path.projection(projection));
           if (is_mega) {
-            border.raise();
+            d3.select('#map2 .d-' + number).raise();
           }
+          
+          d3.selectAll("#map2 .district").classed("dull", function() {
+            if (!d3.select(this).classed('d-' + number)) {
+              return is_mega;
+            }
+          });
+          
+          setTimeout(function() {
+            d3.select("#map2 .d-" + number).classed("mega", is_mega);
+            border
+              .attr("d", is_mega ? path.projection(mega_me) : path.projection(projection));
+          }, 100);
         });
       colorDistrict();
       
@@ -160,7 +181,8 @@ d3.json("vote-totals.json", function(err, districts) {
         .attr('max', popPercentage + 10)
         .on('change', function() {
           var shift = d3.select(this).property('value') - basePercent;
-          d3.select('#mapshift-container .change').text((shift > 0 ? ('+' + shift.toFixed(1)) : shift.toFixed(1)) + '%');
+          // (shift > 0 ? ('+' + shift.toFixed(1)) : shift.toFixed(1))
+          d3.select('#mapshift-container .change').text((d3.select(this).property('value') * 1).toFixed(1) + '% (' + (shift > 0 ? ('+' + shift.toFixed(1)) : shift.toFixed(1)) + ')');
           for (var d = 1; d <= 18; d++) {
             renderDistrict(d, shift);
           }

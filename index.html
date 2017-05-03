@@ -2,39 +2,70 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Gerrymandering PA</title>
+    <title>Gerrymandering</title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/gerry.css"/>
   </head>
   <body>
     <div class="container">
       <div class="row">
+        <div class="col-sm-9">
+          <h2>Gerrymandering and Justice Kennedy's "Hackathon Pitch"</h2>
+          <p>
+          <strong>In <i><a href='https://en.wikipedia.org/wiki/Vieth_v._Jubelirer'>Vieth v. Jubelirer (2004)</a></i></strong>, the Supreme Court declined to intervene in the redistricting of
+          Pennsylvania's Congressional districts. Racially discriminatory gerrymandering has been struck down by the
+          Supreme Court many times, but the Court could not find a formula for evaluating <em>partisan gerrymandering</em> - disenfranchising voters of a political party.</p>
+          <p><strong>The 2010 census</strong> determined new Congressional districts for the 2012 election.
+          In an election where a slim majority (50.28%) of the popular vote was for Democratic candidates, Republicans
+          won thirteen seats to Democrats' five. The parties continued to win the same districts in 2014 and 2016 (mapped below).
+          </p>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-sm-12">
-          <h2>Partisan Symmetry</h2>
-          <hr/>
-          <h4>Which districts would flip with a shift in support for Democrats?</h4>
-          <label>
-            <input type="checkbox" id="contested" checked="checked"/>
-            <span>Show Uncontested Districts</span>
-          </label>
-          <div id="mapshift-container">
-            <input id="mapshift" type="range" step="0.2"/>
-            <span class="min">-10%</span>
-            <span class="change">0%</span>
-            <span class="max">+10%</span>
-          </div>
-          <div id="map">
+          <div class="well">
+            <h4><strong>Lock in</strong>: which districts would flip with a significant shift in support for Democrats?</h4>
+            <label>
+              <input type="checkbox" id="contested" checked="checked"/>
+              <span>Show Uncontested Districts</span>
+            </label>
+            <div id="mapshift-container">
+              <input id="mapshift" type="range" step="0.2"/>
+              <span class="min">-10%</span>
+              <span class="change">48.3% (2016)</span>
+              <span class="max">+10%</span>
+            </div>
+            <div id="map">
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-9">
+          <h2>Justice Kennedy's opinion</h2>
+          <p><strong>The plurality decision</strong> was written by Antonin Scalia, and a <a href='https://www.law.cornell.edu/supct/html/02-1580.ZC.html'>concurring (but optimistic) opinion</a> was written by frequent swing-voter Anthony Kennedy:</p>
+          <blockquote>
+         Technology is both a threat and a promise… On the one hand, if courts refuse to entertain any claims of partisan gerrymandering, the temptation to use partisan favoritism in districting in an unconstitutional manner will grow. On the other hand, <strong>new technologies may produce new methods of analysis that make more evident the precise nature of the burdens gerrymanders impose on the representational rights of voters and parties</strong>. That would facilitate court efforts to identify and remedy the burdens, with judicial intervention limited by the derived standards.
+          <br/><br/>
+If suitable standards with which to measure the burden a gerrymander imposes on representational rights did emerge, hindsight would show that the Court prematurely abandoned the field.
+          </blockquote>
+          <p>Since then, there's been an ongoing discussion about what might be a good test to
+          show unconstitutionally unfair districts. <strong>We can expect this to be a major issue</strong> as
+          we get closer to the 2020 Census. I'm going to show you two of the best methods:</p>
+          <br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-9">
+          <h3>Partisan Symmetry</h3>
+          <hr/>
           <p>Partisan symmetry doesn't expect perfectly proportional representation in Congress. It tests whether
           if the parties were to switch statewide vote totals, they would also switch seat totals.</p>
           <p>In an ideal
           system, the parties would have equal representation at 50% and mirror each others achievements as their
-          vote total rose. But here we can predict that Democrats would need 56% of the vote to win half of Pennsylvania's
-          contested Congressional elections.</p>
+          vote total rose. Using the same data as the map at the top of the page, we can predict that Democrats would need around 56% of the vote to win just 7 of Pennsylvania's
+          15 contested Congressional elections.</p>
         </div>
       </div>
       <div class="row">
@@ -55,6 +86,61 @@
           </svg>
         </div>
       </div>
+      <div class="row">
+        <div class="col-sm-9">
+          <h3>Efficiency Gap</h3>
+          <hr/>
+          <p>Also called <i>wasted votes</i> - this method counts up votes of a recent election with over-representation in 'packed' districts and lost votes in 'cracked' districts, to show how a popular-vote-majority for one party is being diluted. This expects a model of hyper-proportionality (a party with a 2% lead would have 4% more seats, a 5% lead meaning 10% more seats, etc).</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="well">
+            <h4><strong>Lost votes</strong>: how are votes divided?</h4>
+            <p>Click or tap a district to see it up-close:</p>
+            <div id="map2">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>Other methods</h3>
+          <hr/>
+          <p>Another two interesting methods (which I won't demo here to cause problems for your browser) are
+          <strong>compactness</strong> and <strong>random simulations</strong>.</p>
+          <p>When most people think of gerrymandering, they point to unusual shapes as examples of shady redistricting gone amok. Several states require their districts to be geometrically compact, by comparing the edges or area of the shape
+          to a circle.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>It hasn't always been this way</h3>
+          <hr/>
+          
+          <p>So it hasn't always been this way. <strong>And more importantly, it doesn't have to be.</strong></p>
+          <br/>
+          <br/>
+          <blockquote>
+          <a href="https://www.washingtonpost.com/news/monkey-cage/wp/2017/01/31/the-supreme-court-will-examine-partisan-gerrymandering-in-2017-that-could-change-the-voting-map/?utm_term=.17a84b1cfff3"><big>"The Supreme Court will examine partisan gerrymandering in 2017. That could change the voting map." - Washington Post, Jan 31</big></a>
+          </blockquote>
+        </div>
+      </div>
+      
+      <br/>
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="col-sm-9">
+          If this was cool and informative, please consider sending a few $ on Venmo (@<span>mapmeld</span>)
+          <br/>or ฿ bitcoin (<a href='https://i.imgur.com/00vl9Lj.png'>1E2hWkpTCQu3qSbVz8SCqEUrRTD6EySzjC</a>).
+          <br/><br/>
+          If this goes well, I'll try writing an article about maps, quantum computing, or language support in Unicode.
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
     </div>
     <script src="lib/d3.v4.min.js"></script>
     <script src="lib/topojson.v3.min.js"></script>

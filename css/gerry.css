@@ -24,7 +24,7 @@
   fill: #fc3c2f;
 }
 .district.mega {
-  stroke-width: 6;
+  stroke-width: 3;
   fill-opacity: 1;
 }
 .hide {
@@ -36,4 +36,13 @@
 svg#graph {
   overflow: visible;
   margin-left: 15px;
+}
+.well {
+  width: auto;
+}
+p {
+  font-size: 112%;
+}
+#map2 .district {
+  transition: 2.2s;
 }
