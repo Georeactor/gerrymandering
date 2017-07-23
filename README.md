@@ -11,6 +11,13 @@ Candidate names and vote counts from New York Times and Wikipedia
 * TopoJSON
 * <a href='http://www.connoratherton.com/walkway'>Walkway.js</a> by Connor Atherton (MIT license)
 
+## Jupyter Notebooks
+
+The project now has a Python / Jupyter Notebook which renders results with D3.js
+
+To make it work, you need to run ```pip install py_d3```
+```
+
 ## License
 
 MIT License
